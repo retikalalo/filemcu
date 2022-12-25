@@ -1,0 +1,158 @@
+{% extends 'front/base.html' %}
+{% load static %}
+
+
+{% block content %}
+            <!-- ===== START OF SEARCH FORM WRAPPER ===== -->
+            <div class="search-form-wrapper search-form-rev">
+                <div class="container">
+
+                    <!-- ===== START OF SEARCH FORM ===== -->
+                    <form id="search-form-1" method="GET" action="/search/">
+                        {% csrf_token %}
+                        <div class="row justify-content-center">
+                            <div class="col-md-8 col-sm-10 col-12">
+                                <div class="form-group">
+                                    <input name="q" type="text" id="search-keyword" value="" class="form-control" placeholder="Cari Movie Di Sini">
+                                    <button type="submit" class="btn btn-main btn-effect"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- ===== END OF SEARCH FORM ===== -->
+
+                </div>
+            </div>
+            <!-- ===== END OF SEARCH FORM WRAPPER ===== -->
+        </section>
+        <!-- =============== START OF SLIDER REVOLUTION SECTION =============== -->
+
+         <!-- =============== START OF TOP RATED MOVIES SECTION =============== -->
+         <section class="top-movies ptb100">
+            <div class="container">
+
+                <!-- Start of row -->
+                <div class="row">
+                    <div class="col-md-8">
+                        <h2 class="title">FILEMCU LIST</h2>
+                    </div>
+
+
+                    <div class="col-md-4 align-self-center text-right">
+                        
+                    </div>
+                </div>
+                <!-- End of row -->
+
+               
+                <!-- Start of Movie List -->
+                <div class="row mt20">
+
+                    {% for d in film %}
+                    <!-- Movie List Item -->
+                    <div class="col-md-12 col-sm-12">
+                        <div class="movie-list-1 mb30">
+                            <div class="listing-container">
+
+                                <!-- Movie List Image -->
+                                <div class="listing-image">
+
+                                    <!-- Play Button -->
+                                 <div class="play-btn">
+                                        <a href="https://www.youtube.com/watch?v=Q0CbN8sfihY" class="play-video">
+                                            <i class="fa fa-play"></i>
+                                        </a>
+                                    </div>
+
+                                    <!-- Rating -->
+                                    <div class="stars">
+                                        <div class="rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <h5>{{d.vote_average}}/10</h5>
+                                        </div>
+                                    </div>
+                                    <img src="{{ d.poster_path }}" alt="">
+                                    <!-- Image -->
+                                    {% comment %} <img src="{{d.image}}" alt=""> {% endcomment %}
+                                </div>
+
+                                <!-- Movie List Content -->
+                                <div class="listing-content">
+                                    <div class="inner">
+                                        <h3 class="title">{{d.title}}</h3>
+
+                                        <p>{{d.overview}}</p>
+                                        <h5>date: {{d.release_date}}</h5>
+
+                                        
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+            </div>
+        </section>
+        <!-- =============== END OF TOP RATED MOVIES SECTION =============== -->
+
+
+
+
+        <!-- =============== START OF FEATURES SECTION =============== -->
+        <section class="features">
+            <div class="row">
+
+                <div class="col-md-6 col-sm-12 with-bg overlay-gradient" style="background: url(assets/images/other/features2.jpg)"></div>
+
+                <div class="col-md-6 col-sm-12 bg-light">
+                    <div class="features-wrapper">
+                        <h3 class="title">Watch all Movies & TV Shows once they get released!</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <a class="btn btn-main btn-effect" href="#">View Features</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- =============== END OF FEATURES SECTION =============== -->
+
+
+
+
+        <!-- =============== END OF COUNTER SECTION =============== -->
+        <section class="counter bg-main-gradient ptb50 text-center">
+            <div class="container">
+                <div class="row">
+
+                    <!-- 1st Count up item -->
+                    <div class="col-md-4 col-sm-12">
+                        <span class="counter-item" data-from="0" data-to="964">0</span>
+                        <h4>Movies</h4>
+                    </div>
+
+                    <!-- 2nd Count up item -->
+                    <div class="col-md-4 col-sm-12">
+                        <span class="counter-item" data-from="0" data-to="743">0</span>
+                        <h4>TV Shows</h4>
+                    </div>
+
+                    <!-- 3rd Count up item -->
+                    <div class="col-md-4 col-sm-12">
+                        <span class="counter-item" data-from="0" data-to="1207">0</span>
+                        <h4>Users</h4>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- =============== END OF COUNTER SECTION =============== -->
+
+
+
+{% endblock content %}
+  

@@ -1,0 +1,91 @@
+{% extends 'front/base2.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+        <!-- =============== START OF PAGE HEADER =============== -->
+        <section class="page-header overlay-gradient" style="background: url(assets/images/posters/movie-collection.jpg);">
+            <div class="container">
+                <div class="inner">
+                    <h2 class="title">ARTIKEL LIST</h2>
+                    <ol class="breadcrumb">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li>artikel list</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+        <!-- =============== END OF PAGE HEADER =============== -->
+
+        <!-- =============== START OF MAIN =============== -->
+        <main class="blog-page ptb100">
+            <div class="container">
+
+                <div class="row justify-content-center">
+                    <!-- Start of Blog Posts -->
+                    <div class="col-md-8 col-sm-12">
+
+                        {% for a in artikel %}
+                        <!-- Start of Blog Post 1 -->
+                        <article class="blog-post">
+
+                            <!-- Image -->
+                            <div class="blog-thumb">
+                                <a href="{% url 'artikel_detail' a.id %}" class="post-img hover-link">
+                                    <img src="/media/{{ a.img }}" alt="img">
+                                </a>
+                            </div>
+
+                            <!-- Content -->
+                            <div class="post-content">
+                                <h3 class="title">
+                                    <a href="#">
+                                        {{a.judul}}
+                                    </a>
+                                </h3>
+
+                                <ul class="post-meta">
+                                    <li>{{a.date}}</li>
+                                    <li><a href="#">{{a.kategory}}</a></li>
+                                    <li><a href="#">{{a.nama}}</a></li>
+                                </ul>
+
+                                <p>{{a.body | truncatechars:200}}</p>
+
+                                <a href="{% url 'artikel_detail' a.id %}" class="read-more">
+                                    Read More <i class="fa fa-angle-right"></i>
+                                </a>
+                            </div>
+
+                        </article>
+                        <!-- End of Blog Post 1 -->
+                        {% endfor %}
+
+
+                        <!-- Start of Pagination -->
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <nav class="pagination">
+                                    <ul>
+                                        <li><a href="#" class="current-page">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#"><i class="ti-angle-right"></i></a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <!-- End of Pagination -->
+
+                    </div>
+                    <!-- End of Blog Posts -->
+                </div>
+
+            </div>
+        </main>
+        <!-- =============== END OF MAIN =============== -->
+
+
+{% endblock content %}

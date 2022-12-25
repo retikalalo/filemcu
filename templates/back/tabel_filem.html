@@ -1,0 +1,54 @@
+{% extends 'back/base.html' %}
+{% load static %}
+
+
+{% block konten %}
+
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card bootstrap-table">
+                                <div class="card-body table-full-width">
+                                    <div class="toolbar">
+                                        <a class="btn btn-danger" href="{% url 'sinkron_filem' %}"><b>Sinkron Filem</b></a>
+                                        <a class="btn btn-warning" href="#">Add News</a>  &ensp;
+                                    </div>
+                                    <table id="bootstrap-table" class="table">
+                                        <thead>
+                                            <th data-field="state" data-checkbox="true"></th>
+                                            <th data-field="id" class="text-center">No</th>
+                                            <th data-field="title" data-sortable="true">Nama</th>
+                                            <th data-field="image" data-sortable="true">Image</th>
+                                            <th data-field="description" data-sortable="true">description</th>
+                                            <th>Actions</th>
+                                        </thead>
+                                        <tbody>
+
+                                            {% comment %} {% for f in filem %}
+
+                                            <tr>
+                                                <td></td>
+                                                <td>{{forloop.counter}}</td>
+                                                <td>{{f.title}}</td>
+                                                <td>{{f.image}}</td>
+                                                <td>{{f.description}}</td>
+                                                <td>
+                                                    <a class="btn btn-sm btn-info" href="{% url 'lihat_filem' f.id %}">lihat</a>
+                                                    <a class="btn btn-sm btn-warning" href="{% url 'edit_filem' f.id %}">edit</a>
+                                                    <a onclick="return confirm('hapus artikel?');" class="btn btn-sm btn-danger" href="{% url 'delete_filem' f.id %}">hapus</a>
+                                                </td>
+                                            </tr>
+
+                                             {% endfor %}
+
+                                        </tbody> {% endcomment %}
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+{% endblock konten %}

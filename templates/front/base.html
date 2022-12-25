@@ -1,0 +1,415 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- ===== Mobile viewport optimized ===== -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+
+    <!-- ===== Meta Tags - Description for Search Engine purposes ===== -->
+    <meta name="description" content="Movify - Movies, Series & Cinema HTML Template">
+    <meta name="keywords" content="movies, series, online streaming, html template, cinema html template">
+    <meta name="author" content="GnoDesign">
+
+    <!-- ===== Website Title ===== -->
+    <title>{{title}}</title>
+
+    <!-- ===== Favicon & Different size apple touch icons ===== -->
+    <link rel="shortcut icon" href="{% static 'front/assets/images/favicon.png' %}" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static 'front/assets/images/apple-touch-icon-iphone.png' %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'front/assets/images/apple-touch-icon-ipad.png' %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'front/assets/images/apple-touch-icon-iphone-retina.png' %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'front/assets/images/apple-touch-icon-ipad-retina.png' %}">
+    <link rel="apple-touch-icon" sizes="167x167" href="{% static 'front/assets/images/apple-touch-icon-ipad-pro.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'front/assets/images/apple-touch-icon-iphone-6-plus.png' %}">
+    <link rel="icon" sizes="192x192" href="{% static 'front/assets/images/icon-hd.png' %}">
+    <link rel="icon" sizes="128x128" href="{% static 'front/assets/images/icon.png' %}">
+
+    <!-- ===== Google Fonts ===== -->
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+
+    <!-- ===== CSS links ===== -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/revolution/css/settings.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/revolution/css/layers.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/revolution/css/navigation.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/magnific-popup.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/jquery.mmenu.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/owl.carousel.min.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/responsive.css' %}">
+
+</head>
+
+<body>
+
+
+    <!-- =============== START OF PRELOADER =============== -->
+    <div class="loading">
+        <div class="loading-inner">
+            <div class="loading-effect">
+                <div class="object"></div>
+            </div>
+        </div>
+    </div>
+    <!-- =============== END OF PRELOADER =============== -->
+
+
+
+    <!-- =============== START OF RESPONSIVE - MAIN NAV =============== -->
+    <nav id="main-mobile-nav"></nav>
+    <!-- =============== END OF RESPONSIVE - MAIN NAV =============== -->
+
+
+
+    <!-- =============== START OF WRAPPER =============== -->
+    <div class="wrapper">
+
+
+        <!-- =============== START OF HEADER NAVIGATION =============== -->
+        <!-- Insert the class "sticky" in the header if you want a sticky header -->
+        <header class="header header-fixed header-transparent text-white">
+            <div class="container-fluid">
+
+                <!-- ====== Start of Navbar ====== -->
+                <nav class="navbar navbar-expand-lg">
+
+                    <a class="navbar-brand" href="{% url 'index' %}">
+                        <!-- INSERT YOUR LOGO HERE -->
+                        <img src="{% static 'front/assets/images/logoku.png' %}" alt="white logo" width="200" class="logo-white">
+                    </a>
+                    
+                    <!-- Login Button on Responsive -->
+                    <a href="#login-register-popup" class="login-mobile-btn popup-with-zoom-anim"><i class="icon-user"></i></a>
+
+                    <button id="mobile-nav-toggler" class="hamburger hamburger--collapse" type="button">
+                       <span class="hamburger-box">
+                          <span class="hamburger-inner"></span>
+                       </span>
+                    </button>
+
+                    <!-- ====== Start of #main-nav ====== -->
+                    <div class="navbar-collapse" id="main-nav">
+
+                        <!-- ====== Start of Main Menu ====== -->
+                        <ul class="navbar-nav mx-auto" id="main-menu">
+                            <!-- Menu Item -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'index' %}">Home</a>
+                            </li>
+
+                            <!-- Menu Item -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog</a>
+
+                                <!-- Dropdown Menu -->
+                                <ul class="dropdown-menu">
+                                    <!-- Menu Item -->
+                                    <li>
+                                        <a class="dropdown-item" href="{% url 'artikel_list' %}">ARTIKEL LIST</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <!-- Menu Item -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'contact' %}">About me</a> <!--tannya bapak nnti-->
+                            </li>
+
+                        </ul>
+                        <!-- ====== End of Main Menu ====== -->
+
+
+                        <!-- ====== Start of Extra Nav ====== -->
+                        <ul class="navbar-nav extra-nav">
+
+                            <!-- Menu Item -->
+                            <li class="nav-item">
+                                <a class="nav-link toggle-search" href="#">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                            </li>
+
+                            <!-- Menu Item -->
+                            <li class="nav-item m-auto">
+
+                                {% if request.user.is_anonymous %}
+                                <a href="{% url 'login' %}" class="btn btn-main btn-effect login-btn ">
+                                    <i class="icon-user"></i>LOGIN
+                                </a>
+                                {% else %} 
+                                <a href="{% url 'dashboard' %}" class="btn btn-main btn-effect login-btn">
+                                    <i class="icon-user"></i>{{user}} <!--tanya bapak nnti -->
+                                </a> 
+                            {% endif %}
+
+                            </li>
+                        </ul>
+                        <!-- ====== End of Extra Nav ====== -->
+
+                    </div>
+                    <!-- ====== End of #main-nav ====== -->
+                </nav>
+                <!-- ====== End of Navbar ====== -->
+
+            </div>
+        </header>
+        <!-- =============== END OF HEADER NAVIGATION =============== -->
+
+
+
+
+        <!-- =============== START OF SLIDER REVOLUTION SECTION =============== -->
+        <section id="slider" class="full-slider">
+            <div class="rev-slider-wrapper fullscreen-container overlay-gradient">
+                <div id="fullscreen-slider" class="rev_slider fullscreenbanner" style="display:none" data-version="5.4.1">
+                    <ul>
+
+                        <!-- ===== SLIDE NR. 1 ===== -->
+                        <li data-transition="fade">
+                            <!-- MAIN IMAGE -->
+                            <img src="{% static 'front/assets/images/slider/slider1.jpg' %}"
+                                 alt="Image"
+                                 title="slider-bg"
+                                 data-bgposition="center center"
+                                 data-bgfit="cover"
+                                 data-bgrepeat="no-repeat"
+                                 data-bgparallax="10"
+                                 class="rev-slidebg"
+                                 data-no-retina="">
+                            <!-- LAYER NR. 1 -->
+                            <div class="tp-caption tp-resizeme"
+                                 data-x="center"
+                                 data-hoffset=""
+                                 data-y="middle"
+                                 data-voffset="['-30','-30','-30','-30']"
+                                 data-responsive_offset="on"
+                                 data-fontsize="['60','50','40','30']"
+                                 data-lineheight="['60','50','40','30']"
+                                 data-whitespace="nowrap"
+                                 data-frames='[{"delay":1000,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                                 style="z-index: 5; color: #fff; font-weight: 900;">MASUKAN KEYWORD
+                            </div>
+                        </li>
+
+                        <!-- ===== SLIDE NR. 3 ===== -->
+                        <li data-transition="fade"
+                            data-slotamount="7"
+                            data-easein="default"
+                            data-easeout="default"
+                            data-masterspeed="2000">
+                            <!-- MAIN IMAGE -->
+                            <img src="{% static 'front/assets/images/slider/slider3.jpg' %}"
+                                 alt="Image"
+                                 data-bgposition="center top"
+                                 data-bgfit="cover"
+                                 data-bgrepeat="no-repeat"
+                                 data-bgparallax="3"
+                                 class="rev-slidebg"
+                                 data-no-retina>
+                            <!-- LAYER NR. 1 -->
+                            <div class="tp-caption tp-resizeme"
+                                 data-x="center"
+                                 data-hoffset=""
+                                 data-y="middle"
+                                 data-voffset="['-30','-30','-30','-30']"
+                                 data-responsive_offset="on"
+                                 data-fontsize="['60','50','40','30']"
+                                 data-lineheight="['60','50','40','30']"
+                                 data-whitespace="nowrap"
+                                 data-frames='[{"delay":1000,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                                 style="z-index: 5; color: #fff; font-weight: 900;">BACA DETAIL SELENGKAPNYA
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <!-- ===== END OF REV SLIDER WRAPPER ===== -->
+
+        {% block content %}
+
+
+
+        {% endblock content %}
+
+
+
+      <!-- =============== START OF FOOTER =============== -->
+        <footer class="footer1 bg-dark">
+
+            <!-- ===== START OF FOOTER WIDGET AREA ===== -->
+            <div class="footer-widget-area ptb100">
+                <div class="container">
+                    <div class="row">
+
+                        <!-- Start of Widget 1 -->
+                        <div class="col-lg-5 col-md-6 col-sm-12">
+                            <div class="widget widget-about">
+
+                                <img src="{% static 'front/assets/images/1.png' %}" alt="white logo" class="logo-white">
+                                <p class="nomargin">FILEMCU, merupakan suatu website yang berisikan informasi filem.</p>
+                            </div>
+                        </div>
+                        <!-- End of Widget 1 -->
+
+                        <!-- Start of Widget 2 -->
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="widget widget-links">
+                                <h4 class="widget-title">Useful links</h4>
+
+                                <ul class="general-listing">
+                                    <li><a href="{% url 'index' %}">home</a></li>
+                                    <li><a href="{% url 'artikel_list' %}">artikel list</a></li>
+                                    <li><a href="{% url 'contact' %}">about me</a></li>
+                                </ul>
+
+                            </div>
+                        </div>
+                        <!-- End of Widget 2 -->
+
+                        <!-- Start of Widget 4 -->
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="widget widget-social">
+                                <h4 class="widget-title">follow us</h4>
+
+                                <p>Jangann lupa ikuti media sosial kami.</p>
+
+                                <!-- Start of Social Buttons -->
+                                <ul class="social-btns">
+                                    <!-- Social Media -->
+                                    <li>
+                                        <a href="#" class="social-btn-roll facebook">
+                                            <div class="social-btn-roll-icons">
+                                                <i class="social-btn-roll-icon fa fa-facebook"></i>
+                                                <i class="social-btn-roll-icon fa fa-facebook"></i>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <!-- Social Media -->
+                                    <li>
+                                        <a href="#" class="social-btn-roll google-plus">
+                                            <div class="social-btn-roll-icons">
+                                                <i class="social-btn-roll-icon fa fa-google-plus"></i>
+                                                <i class="social-btn-roll-icon fa fa-google-plus"></i>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <!-- Social Media -->
+                                    <li>
+                                        <a href="#" class="social-btn-roll instagram">
+                                            <div class="social-btn-roll-icons">
+                                                <i class="social-btn-roll-icon fa fa-instagram"></i>
+                                                <i class="social-btn-roll-icon fa fa-instagram"></i>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!-- End of Social Buttons -->
+
+                            </div>
+                        </div>
+                        <!-- End of Widget 4 -->
+
+                    </div>
+                </div>
+            </div>
+            <!-- ===== END OF FOOTER WIDGET AREA ===== -->
+
+
+            <!-- ===== START OF FOOTER COPYRIGHT AREA ===== -->
+            <div class="footer-copyright-area ptb30">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="d-flex">
+                                <div class="links">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item"><a href="#">Privacy & Cookies</a></li>
+                                        <li class="list-inline-item"><a href="#">Legal Disclaimer</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="copyright ml-auto">All Rights Reserved by <a href="#">FILEMCU</a>.</div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ===== END OF FOOTER COPYRIGHT AREA ===== -->
+
+        </footer>
+        <!-- =============== END OF FOOTER =============== -->
+
+    </div>
+    <!-- =============== END OF WRAPPER =============== -->
+
+
+
+
+    <!-- =============== START OF GENERAL SEARCH WRAPPER =============== -->
+    <div class="general-search-wrapper">
+        <form class="general-search" role="search" method="GET" action="/search/">
+            <input type="text" name="q" placeholder="Cari Movie Di Sini...">
+            <span id="general-search-close" class="ti-close toggle-search"></span>
+            <button type="submit">search</button>
+        </form>
+    </div>
+    <!-- =============== END OF GENERAL SEARCH WRAPPER =============== -->
+
+
+    <!--tempat code login -->
+  
+
+
+
+    <!-- ===== Start of Back to Top Button ===== -->
+    <div id="backtotop">
+        <a href="{% url 'contact' %}"></a>
+    </div>
+    <!-- ===== End of Back to Top Button ===== -->
+
+
+
+    <!-- ===== All Javascript at the bottom of the page for faster page loading ===== -->
+    <script src="{% static 'front/assets/js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'front/assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'front/assets/js/jquery.ajaxchimp.js' %}"></script>
+    <script src="{% static 'front/assets/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'front/assets/js/jquery.mmenu.js' %}"></script>
+    <script src="{% static 'front/assets/js/jquery.inview.min.js' %}"></script>
+    <script src="{% static 'front/assets/js/jquery.countTo.min.js' %}"></script>
+    <script src="{% static 'front/assets/js/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'front/assets/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'front/assets/js/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'front/assets/js/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'front/assets/js/headroom.js' %}"></script>
+    <script src="{% static 'front/assets/js/custom.js' %}"></script>
+
+    <!-- ===== Slider Revolution core JavaScript files ===== -->
+    <script type="text/javascript" src="{% static 'front/assets/revolution/js/jquery.themepunch.tools.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'front/assets/revolution/js/jquery.themepunch.revolution.min.js' %}"></script>
+
+    <!-- ===== Slider Revolution extension scripts ===== -->
+    <script type="text/javascript" src="{% static 'front/assets/revolution/js/extensions/revolution.extension.actions.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'front/assets/revolution/js/extensions/revolution.extension.carousel.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'front/assets/revolution/js/extensions/revolution.extension.kenburn.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'front/assets/revolution/js/extensions/revolution.extension.layeranimation.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'front/assets/revolution/js/extensions/revolution.extension.migration.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'front/assets/revolution/js/extensions/revolution.extension.navigation.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'front/assets/revolution/js/extensions/revolution.extension.parallax.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'front/assets/revolution/js/extensions/revolution.extension.slideanims.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'front/assets/revolution/js/extensions/revolution.extension.video.min.js' %}"></script>
+
+</body>
+
+</html>

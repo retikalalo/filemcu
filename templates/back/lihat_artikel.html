@@ -1,0 +1,52 @@
+{% extends 'back/base.html' %}
+{% load static %}
+
+
+
+{% block konten %}
+
+<div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card stacked-form">
+                               
+                                <div class="card-header ">
+                                    <h4 class="card-title">{{db}}L</h4>
+                                </div>
+                                <div class="card-body ">
+                                    <form method="POST" action="#">
+                                      {% csrf_token %} <!--biar form aman -->
+                                        <div class="form-group">
+                                            <label>Nama :</label>
+                                            <p>{{artikel.nama}}</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Judul :</label>
+                                            <p>{{artikel.judul}}</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Body :</label>
+                                            <p>{{artikel.body}}</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Kategory :</label>
+                                                <p>{{artikel.kategory}}</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Image :</label>
+                                                <p>{{artikel.img}}</p>
+                                        </div>
+                                    
+                                        <div class="card-footer text-right">
+                                            <a class="btn btn-info" href="{% url 'tabel_artikel' %}">back</a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+
+{% endblock konten %}

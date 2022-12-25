@@ -1,0 +1,50 @@
+{% extends 'back/base.html' %}
+{% load static %}
+
+
+
+{% block konten %}
+
+<div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card stacked-form">
+                               
+                                <div class="card-header ">
+                                    <h4 class="card-title">{{db}}</h4>
+                                </div>
+                                <div class="card-body ">
+                                    <form method="POST" action="#" enctype="multipart/form-data">
+                                      {% csrf_token %} <!--biar form aman -->
+                                        <div class="form-group">
+                                            <label>Judul</label>
+                                            {{ forms_artikel.judul }}
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Body</label>
+                                                {{ forms_artikel.body }}
+                                            </textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Kategory</label>
+                                                {{forms_artikel.kategory}}
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Image</label>
+                                                {{ forms_artikel.img }}
+                                                {% comment %} {{ forms_artikel.as_p }} {% endcomment %}
+                                        </div>
+                                    
+                                        <div class="card-footer text-right">
+                                            <button type="submit" class="btn btn-fill btn-info">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+
+{% endblock konten %}

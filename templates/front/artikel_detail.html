@@ -1,0 +1,163 @@
+{% extends 'front/base2.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+        <!-- =============== START OF PAGE HEADER =============== -->
+        <section class="page-header overlay-gradient" style="background: url(assets/images/posters/movie-collection.jpg);">
+            <div class="container">
+                <div class="inner">
+                    <h2 class="title">ARTIKEL DETAIL</h2>
+                    <ol class="breadcrumb">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li>artikel detail</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+        <!-- =============== END OF PAGE HEADER =============== -->
+
+                <!-- =============== START OF MAIN =============== -->
+                <main class="blog-detail ptb100">
+                    <div class="container">
+        
+                        <!-- Start of Row -->
+                        <div class="row justify-content-center">
+                            <div class="col-md-8 col-sm-12">
+                                <!-- Start of Blog Post -->
+                                <article class="blog-post-detail">
+        
+                                    <!-- Image -->
+                                    <div class="blog-thumb">
+                                        <img src="/media/{{ artikel.img }}" alt="">
+                                    </div>
+        
+                                    <!-- Content -->
+                                    <div class="post-content">
+                                        <h3 class="title">
+                                            <a href="blog-post-detail.html">
+                                                {{artikel.judul}}
+                                            </a>
+                                        </h3>
+        
+                                        <ul class="post-meta">
+                                            <li>{{artikel.date}}</li>
+                                            <li><a href="#">{{artikel.kategory}}</a></li>
+                                            <li><a href="#">{{artikel.nama}}</a></li>
+                                        </ul>
+        
+                                        <p>{{artikel.body}}</p>
+        
+                                        <!-- Start of Social Buttons -->
+                                        <div class="mt30">
+                                            <ul class="social-btns">
+                                                <!-- Social Media -->
+                                                <li>
+                                                    <a href="#" class="social-btn-roll facebook">
+                                                        <div class="social-btn-roll-icons">
+                                                            <i class="social-btn-roll-icon fa fa-facebook"></i>
+                                                            <i class="social-btn-roll-icon fa fa-facebook"></i>
+                                                        </div>
+                                                    </a>
+                                                </li>
+        
+                                                <!-- Social Media -->
+                                                <li>
+                                                    <a href="#" class="social-btn-roll twitter">
+                                                        <div class="social-btn-roll-icons">
+                                                            <i class="social-btn-roll-icon fa fa-twitter"></i>
+                                                            <i class="social-btn-roll-icon fa fa-twitter"></i>
+                                                        </div>
+                                                    </a>
+                                                </li>
+        
+                                                <!-- Social Media -->
+                                                <li>
+                                                    <a href="#" class="social-btn-roll google-plus">
+                                                        <div class="social-btn-roll-icons">
+                                                            <i class="social-btn-roll-icon fa fa-google-plus"></i>
+                                                            <i class="social-btn-roll-icon fa fa-google-plus"></i>
+                                                        </div>
+                                                    </a>
+                                                </li>
+        
+                                                <!-- Social Media -->
+                                                <li>
+                                                    <a href="#" class="social-btn-roll instagram">
+                                                        <div class="social-btn-roll-icons">
+                                                            <i class="social-btn-roll-icon fa fa-instagram"></i>
+                                                            <i class="social-btn-roll-icon fa fa-instagram"></i>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!-- End of Social Buttons -->
+                                    </div>
+                                </article>
+                                <!-- End of Blog Post -->
+                                
+                                <hr class="op-5 mtb50">
+
+                                
+                                <!-- Start of Blog Post Comments -->
+                                <div class="comments">
+                                    <h3 class="title">Comments</h3>
+                                    {% if not artikel.comments.all %}
+                                        <p> No comments at yet ... </p>
+                                    {% endif %}
+
+                                    {% for comment in artikel.comments.all %}
+                                    <ul class="list-unstyled mt30">
+                                        <li class="media">
+                                            <div class="circle-img">
+                                                <img class="d-flex mr-3 img-circle" src="{% static 'front/assets/images/user.png' %}" width="60" alt="">
+                                            </div>
+                                            <div class="media-body">
+                                                <h5 class="mt-0">{{ comment.nama }} at {{ comment.date }}</h5>
+                                                 {{ comment.komen }}
+                                                <br>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                 {% endfor %}
+                                </div>                 
+                                <!-- End of Blog Post Comments -->
+        
+                                <hr class="op-5 mtb50">
+    
+                                <!-- Start of Comment Form -->
+                                <div class="comment-form">
+                                    <h3 class="mt-0 mb-1">Add Comment</h3>
+                                    {% comment %} <h6 class="subtitle">Your Email address will not be published</h6> {% endcomment %}
+        
+                                    <form class="row mt30" method="POST" action="#">
+                                        {% csrf_token %}
+                                        <div class="form-group col-md-12 m-t-20">
+                                            <textarea name="komen" class="form-control" rows="5" placeholder="Masukan Komentar"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-6 m-t-20">
+                                            <input name="nama" type="text" class="form-control" placeholder="Nama">
+                                        </div>
+                                        {% comment %} <div class="form-group col-md-6 m-t-20">
+                                            <input name="email" type="text" class="form-control" placeholder="Email">
+                                        </div> {% endcomment %}
+                                        <div class="form-group col-md-12 m-t-20">
+                                            <button type="submit" class="btn btn-main btn-effect">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- End of Comment Form -->
+        
+                            </div>
+                        </div>
+                        <!-- End of Row -->
+        
+                    </div>
+                </main>
+                <!-- =============== END OF MAIN =============== -->
+        
+
+{% endblock content %}

@@ -1,0 +1,119 @@
+{% extends 'front/base2.html' %}
+{% load static %}
+
+
+{% block content %}
+ 
+        <!-- =============== START OF PAGE HEADER =============== -->
+        <section class="page-header overlay-gradient" style="background: url(assets/images/posters/movie-collection.jpg);">
+            <div class="container">
+                <div class="inner">
+                    <h2 class="title">MOVIE LIST</h2>
+                    <ol class="breadcrumb">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li>Movie List</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+        <!-- =============== END OF PAGE HEADER =============== -->
+
+        <!-- =============== START OF TOP RATED MOVIES SECTION =============== -->
+     <section class="top-movies ptb100">
+            <div class="container">
+
+                <!-- Start of row -->
+                <div class="row">
+                    <div class="col-md-8">
+                        <h2 class="title">Hasil Pencarian ...</h2>
+                    </div>
+
+
+                    <div class="col-md-4 align-self-center text-right">
+                        <a href="#" class="btn btn-icon btn-main btn-effect">
+                        </a>
+                    </div>
+                </div>
+                <!-- End of row -->
+
+
+        <!-- =============== START OF MAIN =============== -->
+        <main class="ptb100">
+            <div class="container">
+            
+                <!-- Start of Movie List -->
+                <div class="row">
+                    {% for m in data.results %}
+                    <!-- Movie List Item -->
+                    <div class="col-md-12 col-sm-12">
+                        <div class="movie-list-2">
+                            <div class="listing-container">
+
+                                <!-- Movie List Image -->
+                                <div class="listing-image">
+
+                                    <!-- Image -->
+                                    <div class="img-wrapper">
+                                        <img src="https://image.tmdb.org/t/p/w200{{ m.poster_path }}" alt="">
+                                    </div>
+                                </div>
+
+                                <!-- Movie List Content -->
+                                <div class="listing-content">
+                                    <div class="inner">
+                                        {% if not m.name %}
+                                        <h2 class="title">{{ m.title }}</h2>
+                                        {% else %}
+                                        <h2 class="title">{{ m.name }}</h2>
+                                        {% endif %}
+
+                                        {% if not m.release_date %}
+                                        <p>{{ m.first_air_date }}</p>
+                                        {% else %}
+                                        <p>{{ m.release_date }}</p>
+                                        {% endif %}
+
+                                        <a href="/{{ m.id }}/" class="btn btn-main btn-effect">details</a>
+                                    </div>
+
+
+                                    <!-- Buttons -->
+                                    <div class="buttons">
+                                        <a href="#" data-original-title="Rate" data-toggle="tooltip" data-placement="bottom">
+                                            <i class="icon-heart"></i>
+                                        </a>
+
+                                        <a href="#" data-original-title="Share" data-toggle="tooltip" data-placement="bottom">
+                                            <i class="icon-share"></i>
+                                        </a>
+                                    </div>
+
+                                    <!-- Rating -->
+                                    <div class="stars">
+                                        <div class="rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <h5>{{ m.vote_average }}/ 10</h5>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+
+            </div>
+        </main>
+        <!-- =============== END OF MAIN =============== -->
+    </section>
+
+
+
+{% endblock content %}
+  
